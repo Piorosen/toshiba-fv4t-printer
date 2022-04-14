@@ -34,9 +34,17 @@ namespace BarcodePrinter.Print
                 var p = new Bitmap(a, new Size(255, 170));
                 e.Graphics?.DrawImage(a, page);
             };
+            //B-FV4
+            var name = document.DefaultPageSettings.PrinterSettings.PrinterName;
             document.Print();
+            if (name.Contains("B-FV4"))
+            {
+                return true;
+            }else
+            {
+                return false;
+            }
 #pragma warning restore CA1416 // 플랫폼 호환성 유효S성 검사
-            return true;
         }
 
 

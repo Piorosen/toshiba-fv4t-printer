@@ -27,7 +27,14 @@ namespace BarcodePrinter.Controllers
             using var bitmap = new Bitmap(stream);
 #pragma warning restore CA1416 // ?????? ?????? ?????? ????
             var result = Print.Printer.Instance.PrintImage(bitmap);
-            return Ok($"{{\"result\": {result.ToString().ToLower()}}}");
+            var text = $"{{\"result\": {result.ToString().ToLower()}}}";
+            if (result)
+            {
+                return StatusCode(200, text);
+            }else
+            {
+                return StatusCode(500, text);
+            }
         }
     }
 }
