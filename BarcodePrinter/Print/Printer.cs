@@ -29,7 +29,7 @@ namespace BarcodePrinter.Print
                 Console.WriteLine(e.PageBounds);
                 Console.WriteLine(e.MarginBounds);
 
-                var page = new Rectangle(75, 10, 255, 180);
+                var page = new Rectangle(75, 10, 255, 190);
                 var a = image;
                 var p = new Bitmap(a, new Size(255, 170));
                 e.Graphics?.DrawImage(a, page);
